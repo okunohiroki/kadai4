@@ -1,24 +1,42 @@
 class Vector
   def initialize(x,y)
-    @vx=x
-    @vy=y
+    @x=x
+    @y=y
   end
 
   def to_s
-    return "(#{@vx},#{@vy})"
+    return "(#{@x},#{@y})"
   end
 
   def length
-    return Math::sqrt(@vx**2+@vy**2)
+    return Math::sqrt(@x**2+@y**2)
+  end
+
+  def x
+    @x
+  end
+
+  def y
+    @y
+  end
+
+  def add(v)
+    x1=@x+v.x
+    y1=@y+v.y
+    Vector.new(x1,y1)
   end
 end
 
-a=Vector.new(1,2)
-s=a.to_s
-puts s
-puts a.length
 
-b=Vector.new(5,3)
-puts b.to_s
-puts b.length
+
+v1=Vector.new(1,2)
+puts v1.to_s
+puts v1.length
+
+v2=Vector.new(3,4)
+puts v2.to_s
+puts v2.length
+
+v3=v1.add(v2)
+puts v3.to_s
 
